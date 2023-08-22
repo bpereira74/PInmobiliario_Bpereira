@@ -1,5 +1,5 @@
 #Título del Proyecto PInmobiliario Pagina en Heroku https://pinmobiliariobpp-2ea1ac2fe9f4.herokuapp.com/
-
+la versión en github https://github.com/bpereira74/PInmobiliario_Bpereira
 Descripción Este proyecto es un avance de mi aprendizaje en Ruby on Rails, consiste en el desarrollo de un proyecto sobre publicaciones inmobiliarias que tienen la posiblidad de ser compradas vendidas o arrendadas. 
 Cuenta con tres modelos principales
 Un modelo de usuarios: Que cuenta con user, mail, contrasenña phone, direccion, contacto y rol
