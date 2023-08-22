@@ -9,7 +9,7 @@ class CreateProperties < ActiveRecord::Migration[7.0]
       t.string :address
       t.date :release_date
       t.string :link_to_website
-      t.boolean :available
+      t.boolean :available, default: true
 
       t.timestamps
     end

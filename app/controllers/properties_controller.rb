@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: %i[index show]
   # GET /properties or /properties.json
   def index
     @properties = Property.all
@@ -11,8 +11,9 @@ class PropertiesController < ApplicationController
   end
 
   # GET /properties/new
-  def new
-    @property = Property.new
+      def new
+            @property = current_user.properties.build
+          end
   end
 
   # GET /properties/1/edit
@@ -21,8 +22,7 @@ class PropertiesController < ApplicationController
 
   # POST /properties or /properties.json
   def create
-    @property = Property.new(property_params)
-
+    @property = current_user.properties.build(property_params)
     respond_to do |format|
       if @property.save
         format.html { redirect_to property_url(@property), notice: "Property was successfully created." }
@@ -65,6 +65,6 @@ class PropertiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:user_id, :operation_id, :precio, :type_money, :m2, :address, :release_date, :link_to_website, :available)
+      params.require(:property).permit(:operation_id, :precio, :type_money, :m2, :address, :release_date, :link_to_website, :available)
     end
 end
