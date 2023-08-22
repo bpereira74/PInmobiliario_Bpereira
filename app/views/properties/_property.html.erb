@@ -8,6 +8,16 @@
     <strong>Operation:</strong>
     <%= property.operation_id %>
   </p>
+  
+  <p>
+    <strong>Photo:</strong>
+    <% if property.photo.attached? %>
+      <%= image_tag property.photo %>
+    <% else %>
+      <img src="https://picsum.photos/200/300" alt="">
+    <% end %>
+  </p>
+
   <p>
     <strong>Operations:</strong>
     <% property.operations.each do |operation| %>

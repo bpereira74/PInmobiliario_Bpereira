@@ -2,7 +2,8 @@ class Property < ApplicationRecord
   belongs_to :user
   belongs_to :operation
   has_many :propertyoperations, dependent: :destroy
-  has_many :products, through: :propertyoperations  
+  has_many :products, through: :propertyoperations
+  has_one_attached :photo  
 
   validates :operation,       presence: true,
                               uniqueness: true

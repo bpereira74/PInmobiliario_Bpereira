@@ -3,7 +3,7 @@ class PropertiesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   # GET /properties or /properties.json
   def index
-    @properties = Property.all
+            @pagy, @properties = pagy(Property.all)
   end
 
   # GET /properties/1 or /properties/1.json
@@ -15,6 +15,7 @@ class PropertiesController < ApplicationController
             @property = current_user.properties.build
           end
       end
+
 
   # GET /properties/1/edit
   def edit
