@@ -7,4 +7,15 @@ class User < ApplicationRecord
       def full_name
            name.blank? ? email : name
       end
+
+      # Enum de roles
+      enum role: {
+      normal: 'normal',
+      admin: 'administrador'
+      }, _default: 'normal'
+
+      # Validaciones
+      validates :role, inclusion: { in: %w[normal administrador] }
+
+
 end
