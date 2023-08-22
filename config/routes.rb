@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   		      get '/privacy', to: 'pages#privacy'
 		      get '/legal',   to: 'pages#terms'
 		      root 'pages#home'
+resources :contacts, only: %i[new create]
 end
