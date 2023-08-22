@@ -1,0 +1,4 @@
+operation_id,name,available
+1,Arriendo,true
+2,Compra,true
+3,Venta,true
