@@ -10,6 +10,17 @@ Un modelo con tipo de operacion si es departamento, casa, parcela o si es arrien
 Un modelo nan entre Tipo de propiedad y tipo de operacion
 
 Insignias puede observar el resultado de la aplicación , subida a Heroku, etc.
+Pasos para generar el proyecto en Heroku
+0.- HEROKU
+1.- Abrir heroku
+2.-crear app con un nombre en minuscula
+3.-vincular al repositorio en github
+4.-deploy automatico
+5.-deploy branch
+6.-open console rails db:migrate
+7.-Se puede crear integracion continua con heroku creando un archivo raiz procfile con esta info
+release: bundle exec rails db:migrate
+web: bundle exec puma -C config/puma.rb
 
 Prerrequisitos 📋
 
