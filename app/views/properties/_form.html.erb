@@ -22,40 +22,66 @@
   </div>
 
   <div>
+    <%= form.label :operation_id, style: "display: block" %>
+    <%= form.collection_select :operation_id,
+        Operation.where(available: true), :id, :name,
+        include_blank: true,
+        required: true
+    %>
+  </div>
+
+  <div>
     <%= form.label :precio, style: "display: block" %>
-    <%= form.text_field :precio %>
+    <%= form.text_field :precio 
+    min: 0
+    %>
   </div>
 
   <div>
     <%= form.label :type_money, style: "display: block" %>
-    <%= form.text_field :type_money %>
+    <%= form.text_field :type_money 
+    required: true,
+    %>
   </div>
 
   <div>
     <%= form.label :m2, style: "display: block" %>
-    <%= form.text_field :m2 %>
+    <%= form.text_field :m2 
+    required: true
+    %>
   </div>
 
   <div>
     <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address 
+    required: true,
+    %>
   </div>
 
   <div>
     <%= form.label :release_date, style: "display: block" %>
-    <%= form.date_field :release_date %>
+    <%= form.date_field :release_date 
+    required: true,
+    value: Date.today
+    %>
   </div>
 
   <div>
     <%= form.label :link_to_website, style: "display: block" %>
-    <%= form.text_field :link_to_website %>
+    <%= form.text_field :link_to_website
+    required: true, 
+    value: "https://"
+    %>
   </div>
 
   <div>
     <%= form.label :available, style: "display: block" %>
     <%= form.check_box :available %>
   </div>
-
+  <div>
+    <%= form.label :available, style: "display: block" %>
+    <%= form.check_box :available %>
+  </div>
   <div>
     <%= form.submit %>
   </div>

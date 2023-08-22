@@ -14,10 +14,15 @@ class PropertiesController < ApplicationController
       def new
             @property = current_user.properties.build
           end
-  end
+      end
 
   # GET /properties/1/edit
   def edit
+      if current_user.id == @property.user_id
+        @property = Property.find(params[:id])
+      else
+        redirect_to root_path, notice: 'No puedes editar una propiedad que no es tuya'
+      end
   end
 
   # POST /properties or /properties.json
@@ -50,7 +55,6 @@ class PropertiesController < ApplicationController
   # DELETE /properties/1 or /properties/1.json
   def destroy
     @property.destroy
-
     respond_to do |format|
       format.html { redirect_to properties_url, notice: "Property was successfully destroyed." }
       format.json { head :no_content }
@@ -65,6 +69,6 @@ class PropertiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:operation_id, :precio, :type_money, :m2, :address, :release_date, :link_to_website, :available)
+      params.require(:property).permit(:operation_id, :precio, :type_money, :m2, :address, :release_date, :link_to_website, :available, { feature_ids: [] })
     end
-end
+
