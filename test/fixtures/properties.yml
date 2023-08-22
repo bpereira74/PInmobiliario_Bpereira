@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  operation: one
+  precio: 1.5
+  type_money: MyString
+  m2: 1.5
+  address: MyString
+  release_date: 2023-08-22
+  link_to_website: MyString
+  available: false
+
+two:
+  user: two
+  operation: two
+  precio: 1.5
+  type_money: MyString
+  m2: 1.5
+  address: MyString
+  release_date: 2023-08-22
+  link_to_website: MyString
+  available: false
